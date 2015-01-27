@@ -81,6 +81,10 @@ Manager.prototype.initColors = function(color_pool,bg_color,border_color,
   this.border_width = border_width;
   this.selected_border_width = selected_border_width;
   this.color_pool = color_pool;
+  this.infoDiv = "#info";
+}
+Manager.prototype.setInfoDiv = function(infoDiv) {
+  this.infoDiv = infoDiv;
 }
 
 Manager.prototype.initStates = function(){
@@ -146,6 +150,8 @@ Manager.prototype.toggle = function(data,R_state){
       //is not selected - select
       this.select(member);
     }
+    console.log(member);
+    this.fillInfo();
     this.redraw();
   }
 }
@@ -240,7 +246,6 @@ Manager.prototype.getPercentage = function(member, selected_member) {
   var a = 1/(middle-total_min);
   var b = -1*a*total_min;
   y = a*final_member+b;
-  console.log(y);
   return 1-y;
 }
 
@@ -384,4 +389,26 @@ Manager.prototype.redraw = function() {
       member.redraw();
     }
   }
+}
+
+Manager.prototype.fillInfo = function(){
+
+  $(this.infoDiv+" > thead > tr").find("th:gt(0)").remove();
+  $(this.infoDiv+" > tbody > tr").find("td:gt(0)").remove();
+  //text = "";
+  for(var i = 0; i < this.selected_members.length; i++) {
+    var selected_member = this.selected_members[i];
+    $(this.infoDiv+" thead tr").append("<th style='font-size:1.5em;color: " + selected_member.bg_color + "'>"+selected_member.getData()["name"]+"</th>");
+    $(this.infoDiv+" tbody tr").each(function(){
+      var attr_id = $(this).find("input").attr("name");
+
+      $(this).append("<td style='color: " + selected_member.bg_color + "'>"+selected_member.getData()[attr_id]+"</td>");
+    });
+    //$("#checkinfo tbody tr").append("<td style='color: " + selected_member.bg_color + "'>"+selected_member.getData()["population"]+"</td>");
+    //$("#checkinfo tbody tr").append("<td>New Column</td>");
+    //text += "<div class='name' style='color: " + selected_member.bg_color
+    //+ "'>" + selected_member.getData()["name"] + "</div>";
+  }
+  //console.log(text);
+  //$(this.infoDiv).html(text);
 }

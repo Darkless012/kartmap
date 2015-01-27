@@ -4,19 +4,38 @@
   <title>Webová kartografie - úkol</title>
   <meta name="author" content="Pavel Grochal">
   <link rel="stylesheet" href="css/style.css" type="text/css" />
+  <link rel="stylesheet" href="http://cdn.jsdelivr.net/qtip2/2.2.1/jquery.qtip.min.css" type="text/css" />
   <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
   <script src="http://cdnjs.cloudflare.com/ajax/libs/raphael/2.1.2/raphael-min.js"></script>
   <script src="http://kartograph.org/js/kartograph.js"></script>
   <script src="https://raw.github.com/gka/chroma.js/master/chroma.min.js"></script>
   <script src="http://underscorejs.org/underscore-min.js"></script>
+  <script src="http://cdn.jsdelivr.net/qtip2/2.2.1/jquery.qtip.min.js"></script>
 </head>
 <body>
-  <div id="checkboxes">
-    <div>Population:<input type="checkbox" name="population"></div>
-    <div>Dwellings:<input type="checkbox" name="dwellings"></div>
-    <div>Population density:<input type="checkbox" name="pop-densit"></div>
-  </div>
+  <div><table id="info">
+    <thead>
+      <tr>
+        <th>
+          &nbsp;
+        </th>
+      </tr>
+    </thead>
+    <tbody id="checkboxes">
+      <tr><td><input type="checkbox" name="population" id="population"><label for="population">Population</label></td></tr>
+      <tr><td><input type="checkbox" name="males" id="males"><label for="males">Population (males</label>)</td></tr>
+      <tr><td><input type="checkbox" name="females" id="females"><label for="females">Population (females</label>)</td></tr>
+      <tr><td><input type="checkbox" name="pop-densit" id="pop-densit"><label for="densit">Population density</label></td></tr>
+      <tr><td><input type="checkbox" name="gdp" id="gdp"><label for="gdp">GDP</label></td></tr>
+      <tr><td><input type="checkbox" name="households" id="households"><label for="households">Households</label></td></tr>
+      <tr><td><input type="checkbox" name="dwellings" id="dwellings"><label for="dwellings">Dwellings</label></td></tr>
+      <tr><td><input type="checkbox" name="area" id="area"><label for="area">Area (km<sup>2</sup>)</label></td></tr>
+      <tr><td><input type="checkbox" name="perimeter" id="perimeter"><label for="perimeter">Perimeter (km)</label></td></tr>
+      <tr><td><input type="checkbox" name="neighbours" id="neighbours"><label for="neighbours">Neighbours</label></td></tr>
+    </tbody>
+  </table></div>
   <div id="map"></div>
+
   <script src="js/manager.js"></script>
   <script src="js/control.js"></script>
 </body>

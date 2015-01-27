@@ -30,8 +30,19 @@ map.loadMap('svg/spain.svg', function() {
       fill: C_bg_fill,
       stroke: C_bg_stroke
     },
-    title: function(data) {
-      return data["name"]+ " - "+data["population"];
+    tooltips: function(d) {
+      return [d["name"],
+        '<div>Population: '+ d["population"]+'</div>'+
+        '<div>Males: '+ d["males"]+'</div>'+
+        '<div>Females: '+ d["females"]+'</div>'+
+        '<div>Population density: '+ d["pop-densit"]+'</div>'+
+        '<div>GDP: '+ d["gdp"]+'</div>'+
+        '<div>Households: '+ d["households"]+'</div>'+
+        '<div>Dwellings: '+ d["dwellings"]+'</div>'+
+        '<div>Area (km<sup>2</sup>): '+ d["area"]+'</div>'+
+        '<div>Perimeter (km): '+ d["perimeter"]+'</div>'+
+        '<div>Neighbours: '+ d["neighbours"]+'</div>'
+      ];
     }
   });
 

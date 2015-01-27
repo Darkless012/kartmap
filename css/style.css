@@ -1,0 +1,8 @@
+#top > div {
+  display: inline-block;
+
+}
+#info td{
+  padding: 0 5px;
+  border-bottom: 1px solid #cccccc;
+}
