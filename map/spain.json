@@ -1,0 +1,16 @@
+{
+    "layers": {
+        "states": {
+            "src": "spain.shp",
+            "simplyfy": 2,
+            "attributes": "all"
+        }
+    },
+    "bounds": {
+        "mode": "polygons",
+        "data": {
+            "layers":"states"
+        } 
+    }
+}
+
